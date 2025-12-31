@@ -1,0 +1,212 @@
+/* ------------------------------------------------
+   FONT IMPORTS
+-------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------
+   ROOT THEME COLORS (Light SaaS Theme)
+-------------------------------------------------- */
+:root {
+  --primary: 59 130 246;       /* Blue-500 */
+  --primary-light: 96 165 250; /* Blue-400 */
+  --secondary: 99 102 241;     /* Indigo-500 */
+  --gray-light: 243 244 246;   /* Gray-100 */
+  --gray-soft: 249 250 251;    /* Gray-50 */
+  --text-main: 17 24 39;       /* Gray-900 */
+  --text-soft: 107 114 128;    /* Gray-500 */
+}
+
+/* ------------------------------------------------
+   BASE STYLING
+-------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: rgb(var(--gray-soft));
+  color: rgb(var(--text-main));
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Clean container */
+.container-lg {
+  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* ------------------------------------------------
+   GLOBAL UTILITY CLASSES
+-------------------------------------------------- */
+
+/* Light gradient text */
+.text-gradient {
+  background: linear-gradient(90deg,
+      rgb(var(--primary)),
+      rgb(var(--secondary)));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Soft white card */
+.card {
+  @apply bg-white border border-neutral-200 rounded-2xl shadow-sm 
+  hover:shadow-md transition-all duration-300;
+}
+
+/* Inputs */
+.input-field {
+  @apply w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 
+  text-neutral-900 shadow-sm transition-all 
+  focus:border-blue-500 focus:ring-2 focus:ring-blue-200;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply inline-block rounded-xl px-6 py-3 font-semibold text-white 
+  bg-blue-600 shadow-sm 
+  hover:bg-blue-500 hover:scale-[1.01] transition-all duration-300;
+}
+
+.btn-secondary {
+  @apply inline-block rounded-xl px-6 py-3 font-semibold 
+  border border-blue-600 text-blue-600 
+  hover:bg-blue-50 transition-all duration-300;
+}
+
+/* Soft neutral background section */
+.section-light {
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--gray-light)),
+    #fff
+  );
+}
+
+/* ------------------------------------------------
+   ANIMATIONS
+-------------------------------------------------- */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade-in { animation: fadeIn .6s ease-out forwards; }
+.animate-slide-up { animation: slideUp .6s ease-out forwards; }
+.animate-scale-in { animation: scaleIn .6s ease-out forwards; }
+
+/* ------------------------------------------------
+   GLOW EFFECTS (SUBTLE + PROFESSIONAL)
+-------------------------------------------------- */
+.glow {
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.25);
+}
+
+.glow:hover {
+  box-shadow: 0 0 22px rgba(59, 130, 246, 0.45);
+  transition: 0.3s ease;
+}
+
+/* ------------------------------------------------
+   SCROLLBAR
+-------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--gray-light));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--text-soft) / 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--text-soft) / 0.5);
+}
+
+/* ------------------------------------------------
+   TEXT SELECTION
+-------------------------------------------------- */
+::selection {
+  background: rgb(var(--primary-light) / 0.3);
+}
+
+::-moz-selection {
+  background: rgb(var(--primary-light) / 0.3);
+}
+/* ============================================
+   FIX STACKED SECTION SCROLL LOCK
+============================================ */
+.stack-container {
+  height: auto !important;
+  overflow: visible !important;
+    background-color: #000000;
+
+}
+.stack-section {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  position: relative;
+}
+#home.stack-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .stack-section {
+    display: block;
+  }
+}
+
+/* ===== Mobile spacingz fix for large empty section before footer ===== */
+@media (max-width: 768px) {
+  section {
+    padding-bottom: 3rem !important;
+  }
+}
+/* Hide scrollbar but allow scroll */
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE & Edge */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+@media (max-width: 768px) {
+  #home.stack-section {
+    min-height: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+@media (max-width: 768px) {
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

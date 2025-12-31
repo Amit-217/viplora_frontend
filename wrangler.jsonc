@@ -1,0 +1,10 @@
+{
+  "name": "viplora-tech",
+  "compatibility_date": "2025-11-18",
+
+  "main": "./server/entry.cloudflare-pages.js",
+
+  "assets": {
+    "directory": "./dist"
+  }
+}

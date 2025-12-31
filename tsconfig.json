@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ES2020",
+    "target": "ES2020",
+    "jsx": "react-jsx",
+    "jsxImportSource": "@builder.io/qwik"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"],
+  "vueCompilerOptions": {
+    "experimentalDisableTemplateSupport": true
+  }
+}

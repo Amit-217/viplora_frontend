@@ -1,0 +1,61 @@
+{
+  "name": "viplora-tech",
+  "description": "Advanced tech startup website with 3D, animations, and AI",
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": "^20.0.0"
+  },
+  "scripts": {
+    "build": "qwik build",
+    "build.client": "vite build",
+    "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.server": "qwik check-client src dist && vite build -c adapters/cloudflare-pages/vite.config.ts",
+    "build.types": "tsc --incremental --noEmit",
+    "deploy": "wrangler pages deploy ./dist",
+    "dev": "vite --mode ssr",
+    "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
+    "fmt": "prettier --write .",
+    "fmt.check": "prettier --check .",
+    "lint": "echo lint skipped",
+    "preview": "qwik build preview && vite preview --open",
+    "serve": "wrangler pages dev ./dist --compatibility-flags=nodejs_als",
+    "start": "vite --open --mode ssr",
+    "qwik": "qwik"
+  },
+  "devDependencies": {
+    "@builder.io/qwik": "^1.17.2",
+    "@builder.io/qwik-city": "^1.17.2",
+    "@eslint/js": "^9.39.2",
+    "@types/node": "^20.10.0",
+    "@types/three": "^0.160.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.55.0",
+    "eslint-plugin-qwik": "^1.17.2",
+    "postcss": "^8.4.32",
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.9",
+    "tailwindcss": "^3.4.0",
+    "terser": "^5.44.1",
+    "typescript": "^5.4.5",
+    "vite": "^7.1.11",
+    "vite-tsconfig-paths": "^4.3.1",
+    "wrangler": "^4.50.0"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "framer-motion": "^10.16.16",
+    "gsap": "^3.12.4",
+    "lucide-react": "^0.303.0",
+    "lucide-static": "^0.555.0",
+    "react-hook-form": "^7.49.2",
+    "three": "^0.160.0",
+    "zod": "^3.22.4"
+  }
+}
