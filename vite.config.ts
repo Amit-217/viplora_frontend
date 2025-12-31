@@ -38,4 +38,7 @@ export default defineConfig({
   optimizeDeps: {
     include: ['three', 'framer-motion', 'gsap', '@headlessui/react'],
   },
+  ssr: {
+    noExternal: true,
+  },
 });
