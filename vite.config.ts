@@ -6,9 +6,6 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   plugins: [qwikCity(), qwikVite(), tsconfigPaths({ root: '.' })],
 
-  // 👉 static build for Cloudflare Pages
-  ssr: false,
-
   server: {
     port: 5173,
   },
@@ -18,6 +15,8 @@ export default defineConfig({
   },
 
   build: {
+    // 👇 Yahi main fix — SSR disabled
+    ssr: false,
     minify: 'terser',
     target: 'es2020',
     rollupOptions: {
