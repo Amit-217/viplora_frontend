@@ -6,7 +6,7 @@
   "engines": {
     "node": "^20.0.0"
   },
-  "scripts": {
+ "scripts": {
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
@@ -23,6 +23,7 @@
     "start": "vite --open --mode ssr",
     "qwik": "qwik"
   },
+
   "devDependencies": {
     "@builder.io/qwik": "^1.17.2",
     "@builder.io/qwik-city": "^1.17.2",

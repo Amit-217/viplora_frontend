@@ -6,7 +6,9 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   plugins: [qwikCity(), qwikVite(), tsconfigPaths({ root: '.' })],
 
-  // FIX → enable normal dev server
+  // 👉 static build for Cloudflare Pages
+  ssr: false,
+
   server: {
     port: 5173,
   },
@@ -21,15 +23,9 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          if (id.includes('three')) {
-            return 'three-vendor';
-          }
-          if (id.includes('framer-motion') || id.includes('gsap')) {
-            return 'animation-vendor';
-          }
-          if (id.includes('@headlessui/react') || id.includes('lucide-react')) {
-            return 'ui-vendor';
-          }
+          if (id.includes('three')) return 'three-vendor';
+          if (id.includes('framer-motion') || id.includes('gsap')) return 'animation-vendor';
+          if (id.includes('@headlessui/react') || id.includes('lucide-react')) return 'ui-vendor';
         },
       },
     },
@@ -37,8 +33,5 @@ export default defineConfig({
 
   optimizeDeps: {
     include: ['three', 'framer-motion', 'gsap', '@headlessui/react'],
-  },
-  ssr: {
-    noExternal: true,
   },
 });
