@@ -35,7 +35,7 @@ export const RouterHead = component$(() => {
       {/* Favicon */}
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-      {/* Meta tags */}
+      {/* Meta */}
       {head.meta.map((m) => (
         <meta key={m.key} {...m} />
       ))}
@@ -46,14 +46,29 @@ export const RouterHead = component$(() => {
       ))}
 
       {/* Styles */}
-      {head.styles.map((s) => (
-        <style key={s.key} {...s.props} dangerouslySetInnerHTML={s.style} />
-      ))}
+      {head.styles.map((s) => {
+        // strip existing dangerouslySetInnerHTML if present
+        const { dangerouslySetInnerHTML: _, ...safeProps } = s.props ?? {};
+        return (
+          <style
+            key={s.key}
+            {...safeProps}
+            dangerouslySetInnerHTML={s.style}
+          />
+        );
+      })}
 
       {/* Scripts */}
-      {head.scripts.map((s) => (
-        <script key={s.key} {...s.props} dangerouslySetInnerHTML={s.script} />
-      ))}
+      {head.scripts.map((s) => {
+        const { dangerouslySetInnerHTML: _, ...safeProps } = s.props ?? {};
+        return (
+          <script
+            key={s.key}
+            {...safeProps}
+            dangerouslySetInnerHTML={s.script}
+          />
+        );
+      })}
     </>
   );
 });
