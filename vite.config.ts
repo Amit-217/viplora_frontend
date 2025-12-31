@@ -13,7 +13,7 @@ export default defineConfig({
   preview: {
     port: 4173,
   },
-
+  ssr: false,          
   build: {
     // 👇 Yahi main fix — SSR disabled
     ssr: false,
